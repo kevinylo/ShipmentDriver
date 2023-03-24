@@ -1,0 +1,5 @@
+rootProject.name = "ShipmentDriver"
+include (":app", ":dagger",
+        ":core-interface", ":core-basemrp",
+        ":model", ":drivers", ':shipment-manager',
+        ":repository")
