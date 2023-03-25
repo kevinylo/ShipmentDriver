@@ -1,4 +1,7 @@
 # scheduling driver for delivery given rules
+
+Note that visual aspect about the app has been kept to a minimum, with a focus on app architecture and algorithm.
+
 ## app building
 - Should be a straight forward import from github, build and run using recent android studio.
 
