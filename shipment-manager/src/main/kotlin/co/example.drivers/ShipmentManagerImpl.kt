@@ -91,7 +91,7 @@ class ShipmentManagerImpl(
             Driver(
                 name = fullName,
                 vowels = numOfVowels,
-                consonants = fullName.length - numOfVowels
+                consonants = fullName.count { letter -> !letter.isVowel() && letter != ' ' }
             )
         }.also {
             driversSubject.onNext(it)
