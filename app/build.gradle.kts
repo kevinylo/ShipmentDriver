@@ -7,14 +7,14 @@ repositories {
     mavenCentral()
 }
 android {
-    namespace = "com.example.news"
+    namespace = "com.example.shipmentdriver"
 
-    compileSdk = 32
+    compileSdk = deps.android.build.compileSdkVersion
 
     defaultConfig {
-        applicationId = "com.example.news"
-        minSdk = 24
-        targetSdk = 32
+        applicationId = "com.example.shipmentdriver"
+        minSdk = deps.android.build.minSdkVersion
+        targetSdk = deps.android.build.targetSdkVersion
         versionCode = 1
         versionName = "1.0"
 
@@ -27,7 +27,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "15"
+        jvmTarget = JavaVersion.VERSION_15.toString()
     }
     buildFeatures {
         viewBinding = true
@@ -42,6 +42,4 @@ dependencies {
     implementation(deps.android.androidx.corektx)
     // dagger
     implementation(deps.dagger.core)
-
-    implementation(deps.android.androidx.recyclerView)
 }

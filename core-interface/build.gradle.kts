@@ -11,12 +11,7 @@ repositories {
     mavenCentral()
 }
 android {
-    compileSdkVersion(deps.android.build.compileSdkVersion)
-
-    defaultConfig {
-        minSdkVersion(deps.android.build.minSdkVersion)
-        targetSdkVersion(deps.android.build.targetSdkVersion)
-    }
+    compileSdk = deps.android.build.compileSdkVersion
 }
 
 dependencies {

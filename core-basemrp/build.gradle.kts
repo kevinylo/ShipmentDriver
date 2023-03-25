@@ -10,14 +10,14 @@ repositories {
 }
 
 android {
-  compileSdk = 32
+  compileSdk = deps.android.build.compileSdkVersion
 
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_15
     targetCompatibility = JavaVersion.VERSION_15
   }
   kotlinOptions {
-    jvmTarget = "15"
+    jvmTarget = JavaVersion.VERSION_15.toString()
   }
 }
 

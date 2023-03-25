@@ -17,7 +17,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_15
     }
     kotlinOptions {
-        jvmTarget = "15"
+        jvmTarget = JavaVersion.VERSION_15.toString()
     }
 }
 
@@ -28,9 +28,7 @@ java {
 
 dependencies {
 
-    implementation(deps.retrofit.core)
     implementation(deps.retrofit.retrofitGson)
-    implementation(deps.retrofit.retrofitRx2)
     implementation(deps.android.androidx.corektx)
 }
 

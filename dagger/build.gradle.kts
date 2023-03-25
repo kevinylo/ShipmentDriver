@@ -14,15 +14,10 @@ repositories {
 }
 
 android {
-    compileSdkVersion(deps.android.build.compileSdkVersion)
-
-    defaultConfig {
-        minSdkVersion(deps.android.build.minSdkVersion)
-        targetSdkVersion(deps.android.build.targetSdkVersion)
-    }
+    compileSdk = deps.android.build.compileSdkVersion
 
     kotlinOptions {
-        jvmTarget = "15"
+        jvmTarget = JavaVersion.VERSION_15.toString()
     }
 }
 
@@ -45,10 +40,4 @@ dependencies {
 
     // joda
     implementation(deps.util.joda)
-
-    // networking
-    implementation(deps.okhttp.core)
-    implementation(deps.retrofit.core)
-    implementation(deps.retrofit.retrofitGson)
-    implementation(deps.retrofit.retrofitRx2)
 }

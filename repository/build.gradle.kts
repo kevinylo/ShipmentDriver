@@ -10,22 +10,14 @@ repositories {
 }
 
 android {
-  compileSdk = 32
-
-  defaultConfig {
-    minSdk = 21
-    targetSdk = 32
-
-    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-  }
-
+  compileSdk = deps.android.build.compileSdkVersion
 
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_15
     targetCompatibility = JavaVersion.VERSION_15
   }
   kotlinOptions {
-    jvmTarget = "15"
+    jvmTarget = JavaVersion.VERSION_15.toString()
   }
 }
 

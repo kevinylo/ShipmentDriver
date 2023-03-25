@@ -9,16 +9,14 @@ repositories {
 }
 android {
 
-    compileSdk = 32
-    defaultConfig {
-        minSdk = 21
-    }
+    compileSdk = deps.android.build.compileSdkVersion
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_15
         targetCompatibility = JavaVersion.VERSION_15
     }
     kotlinOptions {
-        jvmTarget = "15"
+        jvmTarget = JavaVersion.VERSION_15.toString()
     }
     buildFeatures {
         viewBinding = true
@@ -44,9 +42,6 @@ dependencies {
     implementation(deps.android.androidx.swipeRefresh)
     implementation(deps.android.androidx.constraintLayout)
     implementation(deps.ui.materialProgressBar)
-    implementation(deps.ui.glide)
-
-    implementation(deps.util.joda)
 
     // dagger
     implementation(deps.dagger.core)
