@@ -1,9 +1,11 @@
 # scheduling driver for delivery given rules
 
-Note that visual aspect about the app has been kept to a minimum, with a focus on app architecture and algorithm.
+Note that visual aspect about the app has been kept to a minimum, with a focus on app architecture and algorithm
+
+See the bottom for assignment based on the input data and respective suitability scores
 
 ## app building
-- Should be a straight forward import from github, build and run using recent android studio.
+- Should be a straight forward import from github, build and run using recent android studio
 
 ## algorithm
 - Generate suitability score on all the available deliveries for every driver
