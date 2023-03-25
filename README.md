@@ -2,7 +2,7 @@
 ## algorithm
 - Generate suitability score on all the available deliveries for every driver
 - Put the combined (driver, delivery, ss) into heap structure designed to sort based on descending suitability score with time complexity of O(n log n)
-- Poll from the heap when there is still elements inside and the driver as well as the delivery was not obtained from the heap before
+- Poll from the heap when there is still elements inside and the driver as well as the delivery was not obtained from the heap before (with the given assumption of each driver can only have 1 shipment and each shipment can only be offered to one driver)
 - Produce a map from driver to assignment
 
 ## android architecture
