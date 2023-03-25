@@ -1,4 +1,7 @@
 # scheduling driver for delivery given rules
+## app building
+- Should be a straight forward import from github, build and run using recent android studio.
+
 ## algorithm
 - Generate suitability score on all the available deliveries for every driver
 - Put the combined (driver, delivery, ss) into heap structure designed to sort based on descending suitability score with time complexity of O(n log n)
@@ -9,7 +12,7 @@
 Various modules
 ### app
 - Thin layer of module primary for dagger injection as well as manifest in this case
-- System wide initialization for libraries could also be in here
+- System wide initialization for libraries could also be in hereCancel changes
 ### mrp/mvi (core-basemrp)
 - Model Renderer Presenter is a Model-View-Intent based paradigm focusing on states/intents and its unidirectional between presenter and the view
 - Activity implements the renderer interface (for view initiated actions such as driver selected and pull down to refresh)
