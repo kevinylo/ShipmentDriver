@@ -57,6 +57,8 @@ class ShipmentManagerImpl(
             .filter { it.isPresent }
             .map { it.get() }
             .doOnNext { input ->
+                // clear previous data once new input is available
+                // Assuming the input data is not cumulative and no previous state needs to be maintained (big assumption here)
                 resetAssignments()
                 input.processDriverData()
                 input.processShipmentData()
@@ -115,6 +117,7 @@ class ShipmentManagerImpl(
     }
 
     private fun determineOptimalAssignments(queue: PriorityQueue<Assignment>) {
+        // seed the queue with every possible combination of driver/delivery/ss
         driversSubject.value?.forEach { driver ->
             shipmentsSubject.value?.forEach { shipment ->
                 queue.offer(Assignment(driver, shipment, suitabilityScore(driver, shipment)))
@@ -122,6 +125,7 @@ class ShipmentManagerImpl(
         }
         while (queue.isNotEmpty()) {
             val assignment = queue.poll()!!
+            // verify that the next highest suitability score is not from already assigned driver or delivery
             if (!assignedDrivers.contains(assignment.driver) && !assignedShipments.contains(assignment.shipment)) {
                 assignments[assignment.driver] = assignment
                 assignedDrivers.add(assignment.driver)

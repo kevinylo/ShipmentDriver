@@ -19,6 +19,7 @@ class DriversPresenter @Inject constructor(
     override fun consume(renderer: DriversRenderer) {
         super.consume(renderer)
 
+        // view triggered action
         renderer.swipeRefreshed
             .flatMapCompletable {
                 manager.refresh()
@@ -26,20 +27,25 @@ class DriversPresenter @Inject constructor(
             }
             .autoDispose(renderer)
             .subscribe({}, {
-                Log.e("get all drivers", it.toString())
+                Log.e("swipe refresh", it.toString())
             })
 
+        // Observing drivers data from shipment manager so this data will be updated
+        // with updated input data (assignment might not be ready right away)
         manager
             .getAllDrivers()
             .observeOn(AndroidSchedulers.mainThread())
             .autoDispose(renderer)
             .subscribe({ drivers ->
+                // in the event this update is triggered from pull to refresh
                 emit(ShowSwipeRefresh(false))
+                // populate the adapter
                 emit(Initialize(drivers))
             }, {
                 Log.e("get all drivers", it.toString())
             })
 
+        // view triggered action
         renderer
             .driverSelected
             .flatMapSingle { driver ->
