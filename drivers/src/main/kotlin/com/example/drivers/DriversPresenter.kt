@@ -1,11 +1,11 @@
 package com.example.drivers
 
-import android.util.Log
 import co.example.news.core.mrp.AbstractPresenter
 import com.example.drivers.manager.ShipmentManager
 import com.uber.autodispose.autoDispose
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -27,7 +27,7 @@ class DriversPresenter @Inject constructor(
             }
             .autoDispose(renderer)
             .subscribe({}, {
-                Log.e("swipe refresh", it.toString())
+                Timber.e("swipe refresh exception - %s", it.message)
             })
 
         // Observing drivers data from shipment manager so this data will be updated
@@ -42,7 +42,7 @@ class DriversPresenter @Inject constructor(
                 // populate the adapter
                 emit(Initialize(drivers))
             }, {
-                Log.e("get all drivers", it.toString())
+                Timber.e("getAllDrivers exception - %s", it.message)
             })
 
         // view triggered action
@@ -59,7 +59,7 @@ class DriversPresenter @Inject constructor(
                     emit(AssignmentNotReady)
                 }
             }, {
-                Log.e("driver selected", it.toString())
+                Timber.e("driver selected exception - %s", it.message)
             })
     }
 

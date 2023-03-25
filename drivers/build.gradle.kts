@@ -42,6 +42,7 @@ dependencies {
     implementation(deps.android.androidx.swipeRefresh)
     implementation(deps.android.androidx.constraintLayout)
     implementation(deps.ui.materialProgressBar)
+    implementation(deps.reporting.timber)
 
     // dagger
     implementation(deps.dagger.core)
