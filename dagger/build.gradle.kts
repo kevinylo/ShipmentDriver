@@ -17,7 +17,7 @@ android {
     compileSdk = deps.android.build.compileSdkVersion
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_15.toString()
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 }
 
