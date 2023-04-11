@@ -24,7 +24,7 @@ Various modules
 - Presenter emits states for activity to render on the ui level (states are just simple data classes with the same sealed interface)
 - To assist with testing, code generation should be used to generate renderer test class which basically turned all the observable properties into behavior subjects (the code generation code is not included in this project)
 ### core-interface
-- Contains interfaces for the manager, reposotory as well as a base class (handling scoping)
+- Contains interfaces for the manager, repository as well as a base class (handling scoping)
 ### repository
 - If taking assignment instructions at face value there is really no need to have repository, so the assumptions here is the input json file is gonna be ingested down the road via the network.
 - Input can be refreshed by user pulling down the drivers list
@@ -35,15 +35,15 @@ Various modules
 - Data processing from wire data types (dealing with vowels, suitability scores, etc)
 - Also starts finding the optimal matching starting from initialization since input data has already been provided offline. 
 - Can also optimize during runtime given user does pull to refresh
-- Clear assignment data during refresh (using Optional concept to handle assigment call from the activity in the event when processing takes longer user will check back) 
+- Clear assignment data during refresh (using Optional concept to handle assignment call from the activity in the event when processing takes longer user will check back) 
 - Goal is to provide presenter with data it needs (such as driver list and the assigned delivery)
-- Manager is tested for its logic seperate from presenter testing (ShipmentManagerImplTest as an example)
+- Manager is tested for its logic separate from presenter testing (ShipmentManagerImplTest as an example)
 ### model
-- Data classes (raw and internel)
-- Could also seperate over the wire data class from internal data classes into seperate modules for cleaniness
+- Data classes (raw and internal)
+- Could also separate over the wire data class from internal data classes into separate modules for cleanliness
 ### drivers
 - Contains bits needed for this screen/screens (sub dagger component, states used by presenter, renderer interface, presenter, activity, etc)
-- Each screen could be its own module or could also name the module more from a user/business perpective
+- Each screen could be its own module or could also name the module more from a user/business perspective
 - For example, this module could have one more screen/activity under a different package
 ### dagger
 - App module provides general system resources to be injected
